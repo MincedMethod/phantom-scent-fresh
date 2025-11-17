@@ -2,26 +2,8 @@ import { toast } from "sonner";
 import { CartItem } from "@/stores/cartStore";
 
 const SHOPIFY_API_VERSION = '2025-07';
-
-let SHOPIFY_STORE_PERMANENT_DOMAIN: string | null = null;
-let SHOPIFY_STOREFRONT_TOKEN: string | null = null;
-
-async function initializeShopifyConfig() {
-  if (!SHOPIFY_STORE_PERMANENT_DOMAIN || !SHOPIFY_STOREFRONT_TOKEN) {
-    try {
-      const domainResponse = await fetch('/.netlify/functions/get-shopify-shop-permanent-domain');
-      const domainData = await domainResponse.json();
-      SHOPIFY_STORE_PERMANENT_DOMAIN = domainData.domain;
-
-      const tokenResponse = await fetch('/.netlify/functions/get-shopify-storefront-token');
-      const tokenData = await tokenResponse.json();
-      SHOPIFY_STOREFRONT_TOKEN = tokenData.token;
-    } catch (error) {
-      console.error('Failed to initialize Shopify config:', error);
-      throw error;
-    }
-  }
-}
+const SHOPIFY_STORE_PERMANENT_DOMAIN = 'lovable-project-yxhyl.myshopify.com';
+const SHOPIFY_STOREFRONT_TOKEN = '425c52c9fb0f61ee67574187d324a4fa';
 
 export interface ShopifyProduct {
   node: {
@@ -140,8 +122,6 @@ const CART_CREATE_MUTATION = `
 `;
 
 export async function storefrontApiRequest(query: string, variables: any = {}) {
-  await initializeShopifyConfig();
-  
   const SHOPIFY_STOREFRONT_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`;
   
   const response = await fetch(SHOPIFY_STOREFRONT_URL, {
