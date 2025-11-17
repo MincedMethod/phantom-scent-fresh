@@ -5,19 +5,19 @@ const steps = [
     icon: HandIcon,
     title: "Peel",
     description: "Remove the protective backing from your Phantom Scent Guard sticker.",
-    video: "/video/step-peel.mp4",
+    video: "https://memoria-vita.com/assets/how-it-works-video-1-BYUfCf5P.mp4",
   },
   {
     icon: StickyNote,
     title: "Stick",
     description: "Place the sticker inside your shoe, preferably on the insole.",
-    video: "/video/step-stick.mp4",
+    video: "https://memoria-vita.com/assets/how-it-works-video-middle-jLTmJr0D.mp4",
   },
   {
     icon: CheckCircle,
     title: "Forget",
     description: "Enjoy fresh, odor-free shoes for days without any hassle.",
-    video: "/video/step-forget.mp4",
+    video: "https://memoria-vita.com/assets/how-it-works-video-2-tyqDGBNZ.mp4",
   },
 ];
 
