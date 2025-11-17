@@ -5,16 +5,19 @@ const steps = [
     icon: HandIcon,
     title: "Peel",
     description: "Remove the protective backing from your Phantom Scent Guard sticker.",
+    video: "/video/step-peel.mp4",
   },
   {
     icon: StickyNote,
     title: "Stick",
     description: "Place the sticker inside your shoe, preferably on the insole.",
+    video: "/video/step-stick.mp4",
   },
   {
     icon: CheckCircle,
     title: "Forget",
     description: "Enjoy fresh, odor-free shoes for days without any hassle.",
+    video: "/video/step-forget.mp4",
   },
 ];
 
@@ -31,8 +34,18 @@ export const HowItWorksSection = () => {
           {steps.map((step, index) => (
             <div key={index} className="text-center space-y-4 relative">
               {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-8 left-[60%] w-[80%] h-0.5 bg-border" />
+                <div className="hidden md:block absolute top-32 left-[60%] w-[80%] h-0.5 bg-border" />
               )}
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden bg-muted mb-4">
+                <video
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  src={step.video}
+                />
+              </div>
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary relative z-10">
                 <step.icon className="h-8 w-8 text-primary-foreground" />
               </div>
